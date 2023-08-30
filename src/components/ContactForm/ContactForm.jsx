@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import notifyOptions from 'NotifyOptions/NotifyOptions';
@@ -10,7 +10,14 @@ import { IoMdPersonAdd } from 'react-icons/io';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/selectors';
 
-import css from './ContactForm.module.css';
+import {
+  FormikForm,
+  Label,
+  LabelWrapper,
+  FormikInput,
+  FormikErrorMessage,
+  Button,
+} from './ContactForm.styled';
 
 const schema = yup.object().shape({
   name: yup
@@ -73,52 +80,42 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={schema}
     >
-      <Form className={css.form} autoComplete="off">
-        <label htmlFor="name" className={css.label}>
-          <div className={css.label_wrapper}>
-            <BsPersonFill className={css.icon} />
+      <FormikForm autoComplete="off">
+        <Label htmlFor="name">
+          <LabelWrapper>
+            <BsPersonFill />
             Name
-          </div>
+          </LabelWrapper>
 
-          <Field
-            className={css.input}
+          <FormikInput
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-          <ErrorMessage
-            name="name"
-            component="span"
-            className={css.error_message}
-          />
-        </label>
-        <label htmlFor="number" className={css.label}>
-          <div className={css.label_wrapper}>
-            <BsFillTelephoneFill className={css.icon} />
+          <FormikErrorMessage name="name" component="span" />
+        </Label>
+        <Label htmlFor="number">
+          <LabelWrapper>
+            <BsFillTelephoneFill />
             Number
-          </div>
-          <Field
-            className={css.input}
+          </LabelWrapper>
+          <FormikInput
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <ErrorMessage
-            name="number"
-            component="span"
-            className={css.error_message}
-          />
-        </label>
+          <FormikErrorMessage name="number" component="span" />
+        </Label>
 
-        <button type="submit" className={css.button}>
+        <Button type="submit">
           <IoMdPersonAdd size="18" />
           Add contact
-        </button>
-      </Form>
+        </Button>
+      </FormikForm>
     </Formik>
   );
 };

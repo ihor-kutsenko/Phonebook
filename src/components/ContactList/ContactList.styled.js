@@ -1,12 +1,14 @@
-.list {
+import styled from 'styled-components';
+
+export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 8px 12px;
   max-width: 375px;
-}
+`;
 
-.item {
+export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,17 +16,17 @@
   max-width: 375px;
 
   gap: 8px;
-}
+`;
 
-.name {
+export const Name = styled.span`
   color: var(--secondary-color);
-}
+`;
 
-.phone {
+export const Number = styled.span`
   color: #fff;
-}
+`;
 
-.button {
+export const Button = styled.button`
   padding: 5px 7px;
   border: none;
   outline: none;
@@ -33,10 +35,10 @@
   color: #000;
   cursor: pointer;
   transition: background-color 250ms linear, color 250ms linear;
-}
 
-.button:hover,
-.button:focus {
-  background-color: var(--accent-color);
-  color: #fff;
-}
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+`;

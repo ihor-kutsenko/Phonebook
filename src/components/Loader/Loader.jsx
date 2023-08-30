@@ -1,9 +1,9 @@
 import { CirclesWithBar } from 'react-loader-spinner';
-import css from './Loader.module.css';
+import { LoaderBackdrop } from './Loader.styled';
 
 const Loader = () => {
   return (
-    <div className={css.backdrop}>
+    <LoaderBackdrop>
       <CirclesWithBar
         height="100"
         width="100"
@@ -16,7 +16,7 @@ const Loader = () => {
         barColor=""
         ariaLabel="circles-with-bar-loading"
       />
-    </div>
+    </LoaderBackdrop>
   );
 };
 export default Loader;

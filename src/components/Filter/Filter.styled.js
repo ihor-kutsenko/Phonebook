@@ -1,19 +1,21 @@
-.label {
+import styled from 'styled-components';
+
+export const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   color: var(--secondary-color);
-}
+`;
 
-.label_wrapper {
+export const LabelWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
   margin-left: 8px;
-}
+`;
 
-.input {
+export const Input = styled.input`
   padding: 6px 8px;
   width: 220px;
   border: 0;
@@ -22,4 +24,4 @@
 
   background-color: var(--secondary-background-color);
   font-size: 14px;
-}
+`;

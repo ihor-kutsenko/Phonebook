@@ -1,4 +1,6 @@
-.backdrop {
+import styled from 'styled-components';
+
+export const LoaderBackdrop = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
@@ -10,4 +12,4 @@
   position: fixed;
   top: 0;
   z-index: 102;
-}
+`;

@@ -4,7 +4,7 @@ import { BsSearch } from 'react-icons/bs';
 import { selectFilter } from 'redux/selectors';
 import { filterContact } from 'redux/filter/filterSlice';
 
-import css from './Filter.module.css';
+import { Label, LabelWrapper, Input } from './Filter.styled';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -15,19 +15,18 @@ const Filter = () => {
   };
 
   return (
-    <label className={css.label}>
-      <div className={css.label_wrapper}>
+    <Label>
+      <LabelWrapper>
         <BsSearch size="14" /> Find contacts by name
-      </div>
-      <input
-        className={css.input}
+      </LabelWrapper>
+      <Input
         type="text"
         name="filter"
         value={filter}
         onChange={searchFilter}
         placeholder="search"
       />
-    </label>
+    </Label>
   );
 };
 

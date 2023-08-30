@@ -1,7 +1,7 @@
-.container {
-  padding: 24px;
-  /* height: 100vh; */
-  max-width: 100%;
+import styled from 'styled-components';
 
+export const Container = styled.div`
+  padding: 24px;
+  max-width: 100%;
   background-color: var(--background-color);
-}
+`;
