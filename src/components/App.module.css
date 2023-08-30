@@ -1,0 +1,8 @@
+:root {
+  --accent-color: rgb(14, 188, 78);
+  --secondary-color: rgb(156, 224, 224);
+  --background-color: rgb(50, 98, 68);
+  --secondary-background-color: rgb(229, 240, 236);
+  --button-background-color: rgb(93, 193, 35);
+  --error-message-color: rgb(160, 174, 166);
+}

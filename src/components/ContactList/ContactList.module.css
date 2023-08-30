@@ -1,0 +1,42 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 12px;
+  max-width: 375px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 375px;
+
+  gap: 8px;
+}
+
+.name {
+  color: var(--secondary-color);
+}
+
+.phone {
+  color: #fff;
+}
+
+.button {
+  padding: 5px 7px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: var(--button-background-color);
+  color: #000;
+  cursor: pointer;
+  transition: background-color 250ms linear, color 250ms linear;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--accent-color);
+  color: #fff;
+}
