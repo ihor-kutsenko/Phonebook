@@ -1,41 +1,27 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-// components
-import MainContainer from './MainContainer/MainContainer';
-import Section from './Section/Section';
-import ContactForm from './ContactForm/ContactForm';
-import Header from './Header/Header';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import Loader from './Loader/Loader';
-
-import { selectError, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/contacts/operations';
+import SharedLayout from './SharedLayout/Sharedlayout';
+// pages
+import Home from 'pages/Home/Home';
+import Contacts from 'pages/Contacts/Contacts';
+import Register from 'pages/Register/Register';
+import Login from 'pages/Login/Login';
 
 import './App.module.css';
 
 export default function App() {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <MainContainer>
-      <Section title="Phonebook">
-        <ContactForm />
-        <Header title="Contacts" />
-        <Filter />
-        {isLoading && !error && <Loader />}
-        <ContactList />
-      </Section>
-      <ToastContainer />
-    </MainContainer>
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
