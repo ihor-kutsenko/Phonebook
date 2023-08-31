@@ -31,6 +31,12 @@ const ContactList = () => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
+  // variant useMemo
+  // const filteredContacts = usememo(()=> {
+  // return contacts.filter(contact =>
+  //   contact.name.toLowerCase().includes(filter)
+  // )
+  // }, [contacts, filter]);
 
   return (
     <List>
