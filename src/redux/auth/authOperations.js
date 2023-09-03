@@ -54,7 +54,7 @@ export const logIn = createAsyncThunk(
       const { data } = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(data.token);
-      toast.success('Your registration is successful!', notifyOptions);
+      // toast.success('Your registration is successful!', notifyOptions);
       return data;
     } catch (error) {
       toast.error(
