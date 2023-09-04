@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import notifyOptions from 'NotifyOptions/NotifyOptions';
 import 'react-toastify/dist/ReactToastify.css';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -33,10 +33,6 @@ export const register = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toast.error(
-        'Sorry, wrong register, try reloading the page!',
-        notifyOptions
-      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -54,13 +50,9 @@ export const logIn = createAsyncThunk(
       const { data } = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(data.token);
-      // toast.success('Your registration is successful!', notifyOptions);
+      toast.success('Your logined is successful!', notifyOptions);
       return data;
     } catch (error) {
-      toast.error(
-        'Sorry, wrong request, try reloading the page!',
-        notifyOptions
-      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -72,10 +64,12 @@ export const logIn = createAsyncThunk(
  */
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    const { data } = await axios.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
+
     clearAuthHeader();
-    toast.info('Your LogOut is successful!', notifyOptions);
+
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

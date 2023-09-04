@@ -10,7 +10,7 @@ export const StyledLink = styled(NavLink)`
   border: none;
 
   &.active {
-    color: #ada7cb;
+    color: yellow;
   }
 
   @media screen and (min-width: 768px) {

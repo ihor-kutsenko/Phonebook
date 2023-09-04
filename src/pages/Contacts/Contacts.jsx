@@ -11,13 +11,16 @@ import Header from 'components/Header/Header';
 import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
 import ContactList from 'components/ContactList/ContactList';
+
+import { TotalContacts } from 'components/ContactList/ContactList.styled';
 // selectors
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading, selectContacts } from 'redux/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 
 const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +32,7 @@ const Contacts = () => {
       <Section title="Phonebook">
         <ContactForm />
         <Header title="Contacts" />
+        <TotalContacts>Total contacts: {contacts.length}</TotalContacts>
         <Filter />
         {isLoading && !error && <Loader />}
         <ContactList />

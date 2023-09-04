@@ -11,9 +11,9 @@ import { deleteContact } from 'redux/contacts/operations';
 import { Button, List, ListItem, Name, Number } from './ContactList.styled';
 
 const ContactList = () => {
-  const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
   const onDeleteContact = id => {
     dispatch(deleteContact(id));

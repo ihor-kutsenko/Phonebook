@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const TotalContacts = styled.p`
+  margin-bottom: 10px;
+  color: white;
+`;
+
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
