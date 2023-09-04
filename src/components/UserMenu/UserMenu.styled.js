@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 
 export const Username = styled.p`
   font-weight: 700;
+  color: royalblue;
 `;
 
 export const Btn = styled(Button)`

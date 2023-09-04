@@ -3,14 +3,19 @@ import { NavLink } from 'react-router-dom';
 
 export const StyledLink = styled(NavLink)`
   display: inline-block;
+  position: relative;
   text-decoration: none;
-  padding: 3px;
+  margin-right: 50px;
+  font-size: 18px;
   font-weight: 700;
-  color: #fff;
-  border: none;
-
+  color: #000;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
   &.active {
-    color: yellow;
+    text-shadow: rgba(130, 130, 130, 0.5) 4px 2px 3px;
+    color: white;
   }
 
   @media screen and (min-width: 768px) {

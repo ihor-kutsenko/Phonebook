@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -16,6 +17,7 @@ import { register } from 'redux/auth/authOperations';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [passwordValid, setPasswordValid] = useState({ password: false });
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,6 +29,13 @@ const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
+    if (
+      form.elements.email.value.length < 7 &&
+      form.elements.password.value === ''
+    ) {
+      setPasswordValid(prev => ({ ...prev, password: true }));
+      return;
+    }
     form.reset();
   };
 
@@ -97,6 +106,9 @@ const RegisterForm = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                helperText={
+                  'Example of valid email address: qwerty1@example.com'
+                }
               />
               <TextField
                 margin="normal"
@@ -107,6 +119,9 @@ const RegisterForm = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                error={passwordValid.length < 7}
+                onChange={e => setPasswordValid(e.target.value)}
+                helperText={'Password should contains at least 7 symbols'}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-// import Button from '@mui/material/Button';
 import { Logout } from '@mui/icons-material';
 import { logOut } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';

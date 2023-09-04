@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--accent-color);
+  background-color: var(--button-background-color);
 `;
 
 export const Container = styled.div`
@@ -17,5 +18,10 @@ export const Container = styled.div`
   justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
-  color: #f1ede1;
+  color: black;
+`;
+
+export const LinkLogo = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
