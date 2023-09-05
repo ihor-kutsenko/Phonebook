@@ -47,3 +47,28 @@ export const Button = styled.button`
     color: #fff;
   }
 `;
+
+export const ModalPictureWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  width: 60px;
+
+  border-radius: 50%;
+  box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px,
+    rgba(0, 0, 0, 0.5) 1px 1px 1px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background: #ecf0f3;
+    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+  }
+
+  @media screen and (min-width: 480px) {
+    height: 40px;
+    width: 40px;
+  }
+`;

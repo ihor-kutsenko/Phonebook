@@ -1,10 +1,16 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './operations';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  changeContact,
+} from './operations';
 import {
   getActions,
   handleFulfilledGet,
   handleFulfilledAdd,
   handleFulfilledDelete,
+  handleFulfilledChange,
   handlePending,
   handleFulfilled,
   handleRejected,
@@ -24,6 +30,7 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, handleFulfilledGet)
       .addCase(addContact.fulfilled, handleFulfilledAdd)
       .addCase(deleteContact.fulfilled, handleFulfilledDelete)
+      .addCase(changeContact.fulfilled, handleFulfilledChange)
       .addMatcher(isAnyOf(...getActions('pending')), handlePending)
       .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled)
       .addMatcher(isAnyOf(...getActions('rejected')), handleRejected);
